@@ -2,456 +2,189 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>私のアニメ - Page 1</title>
+  <title>私のアニメ</title>
 
-  <link rel="stylesheet" href="style.css">
+  <style>
 
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: black;
+    }
+
+    /* 🎬 VIDEO BACKGROUND */
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      z-index: -2;
+
+      filter: brightness(0.35) contrast(1.2) saturate(1.2);
+      transform: scale(1.05);
+    }
+
+    
+  .overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.45) 60%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+    /* 🎯 CENTER CONTENT */
+    .center {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      color: white;
+    }
+
+    /* ✨ TITLE */
+.title {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2px;
+
+  background: linear-gradient(90deg, #f97316, #facc15, #fb7185, #f97316);
+  background-size: 300% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: fireFlow 4s linear infinite;
+
+  text-shadow:
+    0 0 15px rgba(249,115,22,0.5),
+    0 0 35px rgba(250,204,21,0.3);
+}
+
+@keyframes fireFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+    .subtitle {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+
+  text-shadow:
+    0 0 10px rgba(255,140,0,0.2);
+}
+
+    /* 🔵 ENTER BUTTON */
+.enter-btn {
+  margin-top: 30px;
+
+  padding: 14px 42px;
+  border-radius: 16px;
+
+  text-decoration: none;
+  color: white;
+
+  border: 1px solid rgba(250,204,21,0.6);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  transition: 0.3s;
+
+  box-shadow:
+    0 0 15px rgba(249,115,22,0.4),
+    0 0 40px rgba(250,204,21,0.2);
+
+  animation: btnPulse 2.5s infinite;
+}
+
+    .enter-btn:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 60px rgba(249,115,22,0.6),
+    0 0 100px rgba(250,204,21,0.3);
+}
+
+@keyframes btnPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 15px rgba(249,115,22,0.3),
+      0 0 35px rgba(250,204,21,0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(249,115,22,0.6),
+      0 0 60px rgba(250,204,21,0.25);
+  }
+}
+
+    /* 📱 MOBILE */
+    @media (max-width: 700px) {
+
+      .title {
+        font-size: 38px;
+      }
+
+      .enter-btn {
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <div class="container">
-
-    <div class="header">
-
-      <div class="title-area">
-
-        <h1 class="title">私のアニメ</h1>
-
-        <p class="subtitle">
-          My Personal Anime Collection
-        </p>
-
-      </div>
-
-      <div class="socials">
-
-        <a class="social-btn"
-          href="https://github.com/ESCclicker"
-          target="_blank">
-
-          <i class="fa-brands fa-github"></i>
-
-        </a>
-
-        <a class="social-btn"
-          href="https://t.me/+6w40XYAH0KM4MTg1"
-          target="_blank">
-
-          <i class="fa-brands fa-telegram"></i>
-
-        </a>
-
-        <a class="social-btn"
-   href="music.html">
-
-  <i class="fa-solid fa-music"></i>
-      
-</a>
-      
-      </div>
-
-    </div>
-
-    <!-- SEARCH -->
-
-    <div class="search-area">
-
-      <input
-        type="text"
-        id="searchInput"
-        class="search-box"
-        placeholder="Search anime..."
-      >
-     
-    </div>
-
-    <!-- GALLERY -->
-
-    <div class="gallery">
-
-      <div class="card">
-
-        <img src="anime_images/death note.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Death note
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <img src="anime_images/demon slayer.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Demon slayer
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <img src="anime_images/vinland saga season_1.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            vinland saga S1
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-
-      
-      <div class="card">
-
-        <img src="anime_images/vinland saga season_2.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            vinland saga S2
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-
-      
-      <div class="card">
-
-        <img src="anime_images/black clover.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Black clover
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-      
-      <div class="card">
-
-        <img src="anime_images/One Piece.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            One Piece
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/blue lock.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            blue lock S1
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/blue lock season 2.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            blue lock S2
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/kaiju no. 8.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Kaiju no. 8 S1
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/kaiju no. 8 season_2.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Kaiju no. 8 S2
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/chainsaw man.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Chainsaw man
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/mashle magic and muscles season_1.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Mashle magic and muscles S1
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/mashle magic and muscles season_2.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Mascle magic and muscles S2
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/sakamoto days season_1.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Sakamoto days
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/Bleach.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Bleach
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/black clover _sword of the wizard king.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Black Clover: Sword of the Wizard King
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/attack on titan.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Attack on titan
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/chained soldier season 1.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Chained Soldier S1
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/chained soldier season 2.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Chained Soldier S2
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-          <div class="card">
-
-        <img src="anime_images/Gachiakuta.jpg">
-
-        <div class="overlay"></div>
-
-        <div class="card-content">
-
-          <div class="anime-title">
-            Gachiakuta
-          </div>
-
-          <div class="line"></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- PAGINATION -->
-
-    <div class="bottom-pagination">
-
-      <a href="index.html">
-        <button class="page-btn active">
-          1
-        </button>
-      </a>
-
-      <a href="page2.html">
-        <button class="page-btn">
-          2
-        </button>
-      </a>
-
-      <a href="page3.html">
-        <button class="page-btn">
-          3
-        </button>
-      </a>
-
-    </div>
+  <!-- 🎬 BACKGROUND VIDEO -->
+  <video class="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="background_video/new_bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🌑 OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- 🎯 CENTER CONTENT -->
+  <div class="center">
+
+    <div class="title">私のアニメ</div>
+    <div class="subtitle">あなたのアニメスペースに入る</div>
+
+    <a href="page1.html" class="enter-btn">
+      ENTER
+    </a>
 
   </div>
 
-  <script src="script.js"></script>
-
 </body>
+
 </html>
