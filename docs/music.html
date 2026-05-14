@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Anime Music</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      min-height:100vh;
+
+      background:
+        radial-gradient(circle at top left,
+          rgba(34,197,94,0.15),
+          transparent 30%),
+
+        radial-gradient(circle at bottom right,
+          rgba(16,185,129,0.15),
+          transparent 30%),
+
+        #050505;
+
+      color:white;
+
+      font-family:Arial,sans-serif;
+
+      padding:20px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    .header{
+
+      position:relative;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(20px);
+
+      border-radius:30px;
+
+      padding:40px;
+
+      text-align:center;
+
+      margin-bottom:35px;
+
+      overflow:hidden;
+    }
+
+    .header::before{
+
+      content:"";
+
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255,255,255,0.05),
+          transparent
+        );
+
+      transform:translateX(-100%);
+
+      animation:shine 6s linear infinite;
+    }
+
+    @keyframes shine{
+      to{
+        transform:translateX(100%);
+      }
+    }
+
+    .title{
+
+      position:relative;
+
+      font-size:60px;
+
+      font-weight:900;
+
+      letter-spacing:-2px;
+
+      background:
+        linear-gradient(
+          to right,
+          #bbf7d0,
+          white,
+          #6ee7b7
+        );
+
+      background-clip:text;
+      -webkit-background-clip:text;
+
+      color:transparent;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .subtitle{
+
+      position:relative;
+
+      margin-top:10px;
+
+      color:#a1a1aa;
+
+      font-size:16px;
+    }
+
+    .home-btn{
+
+      position:absolute;
+
+      top:20px;
+      right:20px;
+
+      width:52px;
+      height:52px;
+
+      border-radius:18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      color:white;
+
+      text-decoration:none;
+
+      font-size:20px;
+
+      transition:0.3s;
+
+      z-index:2;
+    }
+
+    .home-btn:hover{
+
+      transform:
+        translateY(-4px)
+        scale(1.05);
+
+      border-color:#22c55e;
+
+      box-shadow:
+        0 10px 30px rgba(34,197,94,0.25);
+    }
+
+    /* SONG LIST */
+
+    .song-list{
+
+      display:flex;
+      flex-direction:column;
+
+      gap:22px;
+    }
+
+    .song{
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(20px);
+
+      border-radius:28px;
+
+      padding:22px;
+
+      transition:0.3s;
+    }
+
+    .song:hover{
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(34,197,94,0.4);
+
+      box-shadow:
+        0 20px 50px rgba(34,197,94,0.18);
+    }
+
+    .song-info{
+
+      margin-bottom:18px;
+    }
+
+    .song-title{
+
+      font-size:24px;
+
+      font-weight:bold;
+    }
+
+    .anime-name{
+
+      margin-top:6px;
+
+      color:#a1a1aa;
+
+      font-size:15px;
+    }
+
+    .spotify-player{
+
+      border-radius:18px;
+
+      overflow:hidden;
+    }
+
+    iframe{
+      border:none;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:700px){
+
+      body{
+        padding:14px;
+      }
+
+      .title{
+        font-size:42px;
+      }
+
+      .header{
+        padding:32px 20px;
+      }
+
+      .song{
+        padding:18px;
+      }
+
+      .song-title{
+        font-size:20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+      <a href="index.html"
+         class="home-btn">
+
+        <i class="fa-solid fa-house"></i>
+
+      </a>
+
+      <h1 class="title">
+        Anime Music
+      </h1>
+
+      <p class="subtitle">
+        Openings • Endings • Memories
+      </p>
+
+    </div>
+
+    <!-- SONG LIST -->
+
+    <div class="song-list">
+
+      <!-- SONG -->
+
+      <div class="song">
+
+        <div class="song-info">
+
+          <div class="song-title">
+            Unravel
+          </div>
+
+          <div class="anime-name">
+            Tokyo Ghoul
+          </div>
+
+        </div>
+
+        <div class="spotify-player">
+
+          <iframe loading="lazy" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1rN9QoVxw5U7TJkyaUR8C1?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        </div>
+
+      </div>
+
+      <!-- SONG -->
+
+      <div class="song">
+
+        <div class="song-info">
+
+          <div class="song-title">
+            Gurenge
+          </div>
+
+          <div class="anime-name">
+            Demon Slayer
+          </div>
+
+        </div>
+
+        <div class="spotify-player">
+
+        <iframe loading="lazy" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/41tYgm5VUu1awE3Cp36LIm?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        </div>
+
+      </div>
+
+      <!-- SONG -->
+
+      <div class="song">
+
+        <div class="song-info">
+
+          <div class="song-title">
+            Bling-Bang-Bang-Born
+          </div>
+
+          <div class="anime-name">
+            Mashle Magic and Muscles
+          </div>
+
+        </div>
+
+        <div class="spotify-player">
+
+        <iframe loading="lazy" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0kdqcbwei4MDWFEX5f33yG?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        </div>
+
+      </div>
+
+            <div class="song">
+
+        <div class="song-info">
+
+          <div class="song-title">
+            Erwin Smith Last Speech
+          </div>
+
+          <div class="anime-name">
+            AOT
+          </div>
+
+        </div>
+
+        <div class="spotify-player">
+
+        <iframe loading ="lazy" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6ipGidttUaUXmA0Ke2lLjR?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
